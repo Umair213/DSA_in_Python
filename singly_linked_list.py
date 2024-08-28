@@ -4,10 +4,8 @@ class Node:
         self.next = next
 
 class SLL():
-    def __init__(self, head=None, length=None, tail=None) -> None:
+    def __init__(self, head=None) -> None:
         self.head = head
-        self.length = length
-        self.tail = tail
 
     def is_empty(self):
         if self.head == None:
@@ -26,8 +24,10 @@ class SLL():
             while temp.next != None:
                 temp = temp.next
             temp.next = node
+            return node
         else:
             self.head = node
+            return node
 
     def search(self, value=None):
         temp = self.head
@@ -63,16 +63,18 @@ class SLL():
 
     def delete_last_element(self):
         if self.head is None:
-            return
+            return None
         elif self.head.next is None:
+            item = self.head
             self.head = None
-            return
+            return item
         else:
             temp = self.head
             while temp.next.next is not None:
                 temp = temp.next
+            item = temp.next
             temp.next = None
-            return
+            return item
 
     def delete_item(self, item):
         if self.head is None:
@@ -113,22 +115,22 @@ class SLLIterator:
                 
 
 # Making an object to test all the above functions
-my_list = SLL()
-my_list.insert_at_start(20)
-my_list.insert_at_start(10)
-my_list.insert_at_last(30)
+# my_list = SLL()
+# my_list.insert_at_start(20)
+# my_list.insert_at_start(10)
+# my_list.insert_at_last(30)
 # my_list.insert_at_last(40)
 # my_list.insert_after(my_list.search(40), 50)
-my_list.print_all_elements()
-print("\n")
+# my_list.print_all_elements()
+# print("\n")
 # my_list.delete_first_element()
 # my_list.delete_last_element()
 # my_list.delete_item(30)
 # my_list.print_all_elements()
 
 # my_list.delete_item(10)
-print("\n")
-my_list.print_all_elements()
-for i in my_list:
-    print(i)
+# print("\n")
+# my_list.print_all_elements()
+# for i in my_list:
+#     print(i)
 
